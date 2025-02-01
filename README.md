@@ -3,6 +3,8 @@ A simplish set of bash scripts to have a locally stored youtube playlist using f
 
 Technically you can modify this to store anything other than just yt videos
 
+![noimg](https://github.com/iceyrazor/youtube-playlist-cli/blob/main/example.png?raw=true)
+
 # download.
 Just download this repo and rename youtube_stuffs.db.def to youtube_stuffs.db
 
