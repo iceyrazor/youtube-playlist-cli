@@ -13,7 +13,7 @@ Just download this repo and rename youtube_stuffs.db.def to youtube_stuffs.db
 - fzf
 - sqlite3
 - sed
-- youtube-dl
+- yt-dlp
 
 ## optional requirements
 - chafa # for image previews

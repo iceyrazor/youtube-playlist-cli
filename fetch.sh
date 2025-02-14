@@ -5,14 +5,14 @@
 
 # cant do whats below because i need to replace all ' within a subset of 'string' with '' to escape it.
 
-# youtube-dl --get-filename -o "insert into ytlist values('%(title)s','%(channel)s','%(id)s','shorts','');" "https://www.youtube.com/playlist?list=PLwpvCCyacwS9Us6F1_UUUre1Py9p4ex4J" 2> out2.txt #| sed "s/'/''/g" #| sqlite3 ./youtube_stuffs.db
+# yt-dlp --get-filename -o "insert into ytlist values('%(title)s','%(channel)s','%(id)s','shorts','');" "https://www.youtube.com/playlist?list=PLwpvCCyacwS9Us6F1_UUUre1Py9p4ex4J" 2> out2.txt #| sed "s/'/''/g" #| sqlite3 ./youtube_stuffs.db
 
 cd "$(dirname "$0")"
 file="./download.txt"
 
 if [ "$1" ]; then
     [ -z "$2" ] && echo playlist not defined. continue? && read -p "continue? (press any key)" 
-    youtube-dl --get-filename -o "%(title)s----%(id)s----%(channel)s" "$1" > "$file" 2> download_err.txt 
+    yt-dlp --get-filename -o "%(title)s----%(id)s----%(channel)s" "$1" > "$file" 2> download_err.txt 
     printf "\n\n"
 
     i=1
@@ -39,7 +39,7 @@ while :; do
     urlid="$(sqlite3 ./youtube_stuffs.db 'select id from ytlist where rowid='$i';')"
     if [ -z "$(ls -l thumbnails | grep ".$urlid")" ]; then
         printf "$i::$urlid\n"
-        thumbnailurl="$(youtube-dl --get-thumbnail "https://youtube.com/watch?v=$urlid" 2> thumberr.txt)"
+        thumbnailurl="$(yt-dlp --get-thumbnail "https://youtube.com/watch?v=$urlid" 2> thumberr.txt)"
         ext="$(printf "$thumbnailurl" | sed 's/.*\.//g' | sed 's/?.*//')"
         wget "$thumbnailurl" -O "thumbnails/$urlid.$ext"
     fi
