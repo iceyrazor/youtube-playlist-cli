@@ -14,6 +14,7 @@ Just download this repo and rename youtube_stuffs.db.def to youtube_stuffs.db
 - sqlite3
 - sed
 - yt-dlp
+- wget
 
 ## optional requirements
 - chafa # for image previews
@@ -25,7 +26,8 @@ Just download this repo and rename youtube_stuffs.db.def to youtube_stuffs.db
 that should pretty much do everything.
 - check download_err.txt for download errors. Videos that are marked as nsfw and require sign in will NOT be added to the list and require manual intervention
 - then ``get_yt2.sh.``.
-if you want thumbnails ``get_yt2.sh 1``.
+    - if you want thumbnails ``get_yt2.sh 1``.
+    - if you want to de a specific "category" or playlist. do ``get_yt2.sh 0 playlistname``
 - if you want too then delete download.txt and download_err.txt and thumberr.txt
 
 # config
