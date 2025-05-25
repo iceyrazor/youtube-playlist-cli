@@ -18,4 +18,8 @@ item="$(sqlite3 ./youtube_stuffs.db "select rowid,* from ytlist" | \
 fi
 
 url=$(sqlite3 ./youtube_stuffs.db "select id from ytlist where rowid=$item")
-printf "https://youtube.com/watch?v=$url" | xclip -selection clipboard
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    printf "https://youtube.com/watch?v=$url" | xclip -selection clipboard
+else
+    printf "https://youtube.com/watch?v=$url" | wl-copy
+fi
