@@ -40,8 +40,12 @@ while :; do
     if [ -z "$(ls -l thumbnails | grep ".$urlid")" ]; then
         printf "$i::$urlid\n"
         thumbnailurl="$(yt-dlp --get-thumbnail "https://youtube.com/watch?v=$urlid" 2>> thumberr.txt)"
-        ext="$(printf "$thumbnailurl" | sed 's/.*\.//g' | sed 's/?.*//')"
-        wget "$thumbnailurl" -O "thumbnails/$urlid.$ext"
+        if [ ! "$thumbnailurl" == "" ]; then
+            ext="$(printf "$thumbnailurl" | sed 's/.*\.//g' | sed 's/?.*//')"
+            wget "$thumbnailurl" -O "thumbnails/$urlid.$ext"
+        else
+            echo could not download thumbnail $urlid
+        fi
     fi
 
     ((i=$i+1))
