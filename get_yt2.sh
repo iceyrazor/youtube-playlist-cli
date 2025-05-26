@@ -16,13 +16,13 @@ else
 fi
 
 if [ "$has_chafa" == "1" ]; then
-    item="$( printf "$item" | \
+    item="$( printf -- "%s" "$item" | \
         fzf --preview "./preview.sh {} | xargs chafa --clear -f iterm -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
-        | sed 's/|.*//g')"
+        | sed -- 's/|.*//g')"
 else
-    item="$( printf "$item" | \
+    item="$( printf -- "%s" "$item" | \
         fzf \
-        | sed 's/|.*//g')"
+        | sed -- 's/|.*//g')"
 fi
 
 url=$(sqlite3 ./youtube_stuffs.db "select id from ytlist where rowid=$item")
