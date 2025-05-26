@@ -39,7 +39,7 @@ while :; do
     urlid="$(sqlite3 ./youtube_stuffs.db 'select id from ytlist where rowid='$i';')"
     if [ -z "$(ls -l thumbnails | grep ".$urlid")" ]; then
         printf "$i::$urlid\n"
-        thumbnailurl="$(yt-dlp --get-thumbnail "https://youtube.com/watch?v=$urlid" 2> thumberr.txt)"
+        thumbnailurl="$(yt-dlp --get-thumbnail "https://youtube.com/watch?v=$urlid" 2>> thumberr.txt)"
         ext="$(printf "$thumbnailurl" | sed 's/.*\.//g' | sed 's/?.*//')"
         wget "$thumbnailurl" -O "thumbnails/$urlid.$ext"
     fi
