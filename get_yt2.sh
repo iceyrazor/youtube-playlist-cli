@@ -17,11 +17,11 @@ fi
 
 if [ "$has_chafa" == "1" ]; then
     item="$( printf -- "%s" "$item" | \
-        fzf --preview "./preview.sh {} | xargs chafa --clear -f iterm -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
+        fzf --no-sort --layout=reverse-list --preview "./preview.sh {} | xargs chafa --clear -f iterm -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
         | sed -- 's/|.*//g')"
 else
     item="$( printf -- "%s" "$item" | \
-        fzf \
+        fzf --no-sort --reverse --layout=reverse-list \
         | sed -- 's/|.*//g')"
 fi
 
