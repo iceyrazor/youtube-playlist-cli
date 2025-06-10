@@ -4,26 +4,40 @@ FZF_PREVIEW_COLUMN=3
 
 
 cd "$(dirname "$0")"
-has_chafa=$1
+has_chafa=0
+
+while getopts "c" opt; do
+    case "$opt" in
+        c) has_chafa=1
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
+
 ! command -v chafa >/dev/null && has_chafa=0
 
-playlist=$2
+playlist=$1
 
-if [ "$2" == "" ]; then
+
+if [ "$playlist" == "" ]; then
     item="$(sqlite3 ./youtube_stuffs.db "select rowid,* from ytlist")"
 else
     item="$(sqlite3 ./youtube_stuffs.db "select rowid,* from ytlist where category='$playlist'")"
 fi
 
+
 if [ "$has_chafa" == "1" ]; then
     item="$( printf -- "%s" "$item" | \
-        fzf --no-sort --layout=reverse-list --preview "./preview.sh {} | xargs chafa --clear -f iterm -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
+        fzf --preview "./preview.sh {} | xargs chafa --clear -f iterm -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" \
         | sed -- 's/|.*//g')"
 else
     item="$( printf -- "%s" "$item" | \
-        fzf --no-sort --reverse --layout=reverse-list \
+        fzf \
         | sed -- 's/|.*//g')"
 fi
+
 
 url=$(sqlite3 ./youtube_stuffs.db "select id from ytlist where rowid=$item")
 if [ -z "$WAYLAND_DISPLAY" ]; then
