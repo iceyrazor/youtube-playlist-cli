@@ -30,6 +30,13 @@ that should pretty much do everything.
     - if you want to de a specific "category" or playlist. do ``getyt playlistname``
 - if you want too then delete download.txt and download_err.txt and thumberr.txt
 
+# getytmd
+generates a md file of the whole db or a category. one with thumbnails and one without.
+
+intended to be used with neovim ``markdown preview`` + ``3rd image``. but anything that can view a markdown file and load the thumbnails is fine. even a browser md viewer.
+
+``getytmd playlistname[optional]``
+
 # config
 - In ``getyt`` there is the preview lines and columns. Idk if I can autodetect this because something something fzf doesn't do something something
 - If you want to change anything else you would have to change the script. Feel free to make your own config system
