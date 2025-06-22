@@ -17,5 +17,5 @@ for ytid in $ytid_arr; do
     item="$(sqlite3 -- "$script_dir/youtube_stuffs.db" "select rowid,title from ytlist where id='$ytid'" | sed 's/*/\\*/g')"
     thumb="$(find -- $script_dir/thumbnails/$ytid*)"
     printf -- "- [%s](https://youtube.com/watch?v=%s)\n" "$item" "$ytid" >> ytlist.md
-    printf -- "- [%s](https://youtube.com/watch?v=%s) ![thumb](%s)\n" "$item" "$ytid" "$thumb" >> ytlist-thumb.md
+    printf -- "- [%s](https://youtube.com/watch?v=%s)\n     - ![thumb](%s)\n" "$item" "$ytid" "$thumb" >> ytlist-thumb.md
 done
