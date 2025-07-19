@@ -1,4 +1,8 @@
 # youtube playlist cli
+
+> [!NOTE]
+> this does NOT download the videos. only thumbnails (optional)
+
 A simplish set of bash scripts to have a locally stored youtube playlist using fzf and sqlite3 with thumbnails
 
 Technically you can modify this to store anything other than just yt videos
