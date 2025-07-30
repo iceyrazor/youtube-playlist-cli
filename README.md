@@ -5,6 +5,8 @@
 
 A simplish set of bash scripts to have a locally stored youtube playlist using fzf and sqlite3 with thumbnails
 
+there is also a web frontend in ``web``
+
 Technically you can modify this to store anything other than just yt videos
 
 ![noimg](https://github.com/iceyrazor/youtube-playlist-cli/blob/main/example.png?raw=true)

@@ -5,3 +5,5 @@ thumberr.txt
 thumbnails/**
 vids/**
 title_vids/**
+web/ytlist/sql-wasm.js
+web/ytlist/sql-wasm.wasm

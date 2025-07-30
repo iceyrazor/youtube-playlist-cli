@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/ytlist/ytlist.css" />
+    </head>
+    <body>
+        <script src='/ytlist/sql-wasm.js'></script>
+        <script src='/ytlist/ytlist.js'></script>
+        <div id="search_box">
+            leave blank for seaching all<br>
+            query: <input id="search_in"></input><br>
+            category
+            <div id="category_box">
+                <input type="radio" name="category_choice" value="ALL" checked> ALL<br>
+            </div>
+            <button onclick="search()">search</button><br>
+        </div>
+        <div id="the_box"></div>
+    </body>
+</html>

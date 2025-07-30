@@ -1,0 +1,35 @@
+a:link {
+      text-decoration: none;
+}
+
+a:visited {
+      text-decoration: none;
+}
+
+a:hover {
+      text-decoration: none;
+}
+
+a:active {
+      text-decoration: none;
+}
+
+#the_box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+#the_box img {
+    width: 100%;
+}
+
+.video-title, .video-channelname{
+    text-decoration: none;
+    color: #222222;
+}
+
+
+.video-title{
+    font-size: 24px
+}
