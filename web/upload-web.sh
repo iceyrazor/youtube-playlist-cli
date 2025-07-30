@@ -4,3 +4,4 @@ rsync -Ra --progress ./ytlist.html ./ytlist/ serv:~/servers/local_html
 
 cd ../
 rsync -Ra --progress ./thumbnails serv:~/servers/local_html/ytlist/
+rsync -Ra --progress ./youtube_stuffs.db serv:~/servers/local_html/ytlist/

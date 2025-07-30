@@ -12,6 +12,7 @@ this isnt perfect takes longer to load the more there is.
     - edit upload-web.sh to your server target directory or ssh
     - run upload-web.sh
 - or
-    - copy all the files in web/ytlist and ytlist.html to your webserver
-    - then copy thumbnails directory to your webserver/ytlist
+    - copy web/ytlist and ytlist.html to your webserver
+    - copy thumbnails directory to your webserver/ytlist/
+    - copy youtube_stuffs.db to webserver/ytlist/
 - goto webpage /ytlist.html
