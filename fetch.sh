@@ -18,7 +18,7 @@ if [ "$1" ]; then
     i=1
     max=$(( $(wc -l "$file" | sed 's/ .*//g') ))
     while :; do
-        printf "insert into ytlist values('$(head -n $i $file | tail -n 1 | sed "s/'/''/g" | sed "s/----/','/g" )','$2','')" | sqlite3 ./youtube_stuffs.db
+        printf -- "insert into ytlist values('%s','%s','')" "$(head -n $i $file | tail -n 1 | sed "s/'/''/g" | sed "s/----/','/g" )" "$2" | sqlite3 ./youtube_stuffs.db
         printf "insert: $i\n"
         ((i=$i+1))
         if (( $i >= $max + 1 )); then
